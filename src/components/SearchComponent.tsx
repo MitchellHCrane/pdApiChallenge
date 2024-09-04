@@ -1,5 +1,3 @@
-// SearchComponent.tsx
-
 import React from "react";
 
 interface Props {

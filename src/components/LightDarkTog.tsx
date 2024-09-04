@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import nhtsaLogo from "../assets/nhtsa-logo.svg";
 
 interface Props {
   darkMode: boolean;
@@ -6,7 +7,8 @@ interface Props {
 }
 const LightDarkTog: FC<Props> = ({ darkMode, setDarkMode }): JSX.Element => {
   return (
-    <div className="flex items-center justify-end bg-pdGray dark:bg-pdGray">
+    <div className="flex items-center justify-between bg-pdGray dark:bg-pdGray shadow-lg sticky top-0 z-50">
+      <img src={nhtsaLogo} alt="NHTSA Logo" className="w-36 mx-4 my-2" />
       <div
         className={`relative w-[41px] my-2 mx-4 h-6 flex items-center rounded-full p-0 cursor-pointer transition-colors duration-300 ${
           darkMode ? "bg-pdDark" : "bg-white border border-pdLightGray"
