@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface ItemProps {
   makeId: string;
   makeName: string;
   isFavorited: boolean;
   onFavoriteToggle: (makeId: string) => void;
+  index: number;
 }
 
 const ItemComponent: React.FC<ItemProps> = ({
@@ -12,6 +13,7 @@ const ItemComponent: React.FC<ItemProps> = ({
   makeName,
   isFavorited,
   onFavoriteToggle,
+  index,
 }) => {
   const [isItemFavorited, setIsItemFavorited] = useState(isFavorited);
 
@@ -19,9 +21,14 @@ const ItemComponent: React.FC<ItemProps> = ({
     setIsItemFavorited(!isItemFavorited);
     onFavoriteToggle(makeId);
   };
-
+  useEffect(() => {
+    if (isItemFavorited) {
+      alert(`${makeName} favorited`);
+    }
+  }, [isItemFavorited]);
   return (
     <div className="bg-pdLightGray dark:bg-pdGray dark:text-white rounded-md shadow-sm p-4">
+      <p className="text-sm">result:{index + 1}</p>
       <div className="flex justify-between items-center">
         <h2 className="font-bold mb-2">MFR: {makeName}</h2>
         <button onClick={handleFavoriteClick}>

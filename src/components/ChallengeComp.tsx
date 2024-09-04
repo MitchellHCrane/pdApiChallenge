@@ -32,6 +32,7 @@ const ChallengeComp = () => {
         setSearchTerm={setSearchTerm}
         handleSearch={handleSearch}
         handleRandom={handleRandom}
+        mfrs={mfrs}
       />
       {/* Loading Spinner  */}
       {loading && <div className="spinner"></div>}
